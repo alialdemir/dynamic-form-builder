@@ -1,0 +1,68 @@
+<!doctype html>
+<html ng-app="app">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>angular-form-builder</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="./assets/css/site.css" />
+    <script src="./assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="./assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./assets/js/angular.min.js"></script>
+    <script type="text/javascript" src="./assets/js/angular-form-builder.js"></script>
+    <script type="text/javascript" src="./assets/js/angular-form-builder-components.js"></script>
+    <script type="text/javascript" src="./assets/js/angular-validator.min.js"></script>
+    <script type="text/javascript" src="./assets/js/angular-validator-rules.min.js"></script>
+    <script type="text/javascript" src="./assets/js/forms.js"></script>
+</head>
+
+<body ng-controller="FormController">
+    <div class="container">
+        <header class="header clearfix">
+            <nav>
+                <ul class="nav nav-pills float-right">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Dinamik Form Oluştur</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="forms.html">Oluşturulmuş Formlar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="answers.html">Cevaplar</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">Oluşturulmuş Formlar</h3>
+            <hr>
+        </header>
+        <main role="main">
+            <div class="row marketing" ng-if="IsShowForm">
+                <div class="col-lg-12">
+                    <h2>Kullanıcı formu</h2>
+                    <hr/>
+                    <form class="form-horizontal">
+                        <div ng-model="input" fb-form="default" fb-default="defaultValue"></div>
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <input type="submit" ng-click="submit()" class="btn btn-default" value="Cevapla" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <ul class="list-group" ng-if="!IsShowForm">
+                <li class="list-group-item" ng-repeat="form in FormIds">
+                    <a href="forms.html#?GuidId={{form.GuidId}}" target="_blank">{{form.Label}} numaralı formu görüntüle</a>
+                </li>
+            </ul>
+        </main>
+        <hr>
+        <footer class="footer">
+            <p>&copy; Company 2017</p>
+        </footer>
+
+    </div>
+</body>
+
+</html>
